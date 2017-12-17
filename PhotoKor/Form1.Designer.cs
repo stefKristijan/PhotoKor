@@ -38,7 +38,7 @@
             this.ibPicture = new Emgu.CV.UI.ImageBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label12 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOriginal = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.winter_btn = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
@@ -56,13 +56,14 @@
             this.histogram_btn = new System.Windows.Forms.Button();
             this.grayscale_btn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.tbBrightness = new System.Windows.Forms.TrackBar();
+            this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.tbBlue = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.tbRed = new System.Windows.Forms.TrackBar();
             this.lbRed = new System.Windows.Forms.Label();
             this.lbRGBLevel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -74,23 +75,27 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showOriginalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.leftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label13 = new System.Windows.Forms.Label();
-            this.vertical_flip_btn = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.horizontal_flip_btn = new System.Windows.Forms.Button();
+            this.tbGreen = new System.Windows.Forms.TrackBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ibPicture)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrightness)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBlue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbRed)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGreen)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -151,6 +156,7 @@
             // 
             // ibPicture
             // 
+            this.ibPicture.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ibPicture.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ibPicture.Location = new System.Drawing.Point(0, 24);
             this.ibPicture.Name = "ibPicture";
@@ -163,7 +169,7 @@
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.btnOriginal);
             this.panel5.Controls.Add(this.label11);
             this.panel5.Controls.Add(this.winter_btn);
             this.panel5.Controls.Add(this.label10);
@@ -191,18 +197,18 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(805, 84);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 13);
+            this.label12.Size = new System.Drawing.Size(42, 13);
             this.label12.TabIndex = 17;
-            this.label12.Text = "Winter";
+            this.label12.Text = "Original";
             // 
-            // button1
+            // btnOriginal
             // 
-            this.button1.Location = new System.Drawing.Point(780, 6);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 75);
-            this.button1.TabIndex = 16;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnOriginal.Location = new System.Drawing.Point(780, 6);
+            this.btnOriginal.Name = "btnOriginal";
+            this.btnOriginal.Size = new System.Drawing.Size(90, 75);
+            this.btnOriginal.TabIndex = 16;
+            this.btnOriginal.UseVisualStyleBackColor = true;
+            this.btnOriginal.Click += new System.EventHandler(this.button1_Click);
             // 
             // label11
             // 
@@ -351,11 +357,9 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
-            this.panel4.Controls.Add(this.label14);
-            this.panel4.Controls.Add(this.horizontal_flip_btn);
+            this.panel4.Controls.Add(this.tbBrightness);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.vertical_flip_btn);
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel4.Location = new System.Drawing.Point(1073, 24);
@@ -363,6 +367,30 @@
             this.panel4.Size = new System.Drawing.Size(200, 731);
             this.panel4.TabIndex = 1;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // tbBrightness
+            // 
+            this.tbBrightness.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbBrightness.Location = new System.Drawing.Point(0, 286);
+            this.tbBrightness.Maximum = 100;
+            this.tbBrightness.Name = "tbBrightness";
+            this.tbBrightness.Size = new System.Drawing.Size(200, 45);
+            this.tbBrightness.TabIndex = 11;
+            this.tbBrightness.Value = 50;
+            this.tbBrightness.Scroll += new System.EventHandler(this.tbBrightness_Scroll);
+            // 
+            // label13
+            // 
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label13.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(0, 261);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(200, 25);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Brightness:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label3
             // 
@@ -380,11 +408,11 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.DarkGray;
-            this.panel6.Controls.Add(this.trackBar3);
+            this.panel6.Controls.Add(this.tbBlue);
             this.panel6.Controls.Add(this.label2);
-            this.panel6.Controls.Add(this.trackBar2);
+            this.panel6.Controls.Add(this.tbGreen);
             this.panel6.Controls.Add(this.label1);
-            this.panel6.Controls.Add(this.trackBar1);
+            this.panel6.Controls.Add(this.tbRed);
             this.panel6.Controls.Add(this.lbRed);
             this.panel6.Controls.Add(this.lbRGBLevel);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -393,13 +421,17 @@
             this.panel6.Size = new System.Drawing.Size(200, 236);
             this.panel6.TabIndex = 0;
             // 
-            // trackBar3
+            // tbBlue
             // 
-            this.trackBar3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.trackBar3.Location = new System.Drawing.Point(0, 190);
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(200, 45);
-            this.trackBar3.TabIndex = 9;
+            this.tbBlue.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbBlue.LargeChange = 10;
+            this.tbBlue.Location = new System.Drawing.Point(0, 190);
+            this.tbBlue.Maximum = 255;
+            this.tbBlue.Minimum = -255;
+            this.tbBlue.Name = "tbBlue";
+            this.tbBlue.Size = new System.Drawing.Size(200, 45);
+            this.tbBlue.TabIndex = 9;
+            this.tbBlue.Scroll += new System.EventHandler(this.tbRGB_Scroll);
             // 
             // label2
             // 
@@ -414,14 +446,6 @@
             this.label2.Text = "Blue:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // trackBar2
-            // 
-            this.trackBar2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.trackBar2.Location = new System.Drawing.Point(0, 120);
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(200, 45);
-            this.trackBar2.TabIndex = 7;
-            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
@@ -435,13 +459,17 @@
             this.label1.Text = "Green:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // trackBar1
+            // tbRed
             // 
-            this.trackBar1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.trackBar1.Location = new System.Drawing.Point(0, 50);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(200, 45);
-            this.trackBar1.TabIndex = 5;
+            this.tbRed.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbRed.LargeChange = 10;
+            this.tbRed.Location = new System.Drawing.Point(0, 50);
+            this.tbRed.Maximum = 255;
+            this.tbRed.Minimum = -255;
+            this.tbRed.Name = "tbRed";
+            this.tbRed.Size = new System.Drawing.Size(200, 45);
+            this.tbRed.TabIndex = 5;
+            this.tbRed.Scroll += new System.EventHandler(this.tbRGB_Scroll);
             // 
             // lbRed
             // 
@@ -524,7 +552,9 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetChangesToolStripMenuItem,
-            this.showOriginalToolStripMenuItem});
+            this.showOriginalToolStripMenuItem,
+            this.flipToolStripMenuItem,
+            this.rotateToolStripMenuItem});
             this.editToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
@@ -542,6 +572,52 @@
             this.showOriginalToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.showOriginalToolStripMenuItem.Text = "Show original";
             // 
+            // flipToolStripMenuItem
+            // 
+            this.flipToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verticalToolStripMenuItem,
+            this.horizontalToolStripMenuItem});
+            this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
+            this.flipToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.flipToolStripMenuItem.Text = "Flip";
+            // 
+            // verticalToolStripMenuItem
+            // 
+            this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.verticalToolStripMenuItem.Text = "Vertical";
+            this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
+            // 
+            // horizontalToolStripMenuItem
+            // 
+            this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.horizontalToolStripMenuItem.Text = "Horizontal";
+            this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
+            // 
+            // rotateToolStripMenuItem
+            // 
+            this.rotateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.leftToolStripMenuItem,
+            this.rightToolStripMenuItem});
+            this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.rotateToolStripMenuItem.Text = "Rotate";
+            // 
+            // leftToolStripMenuItem
+            // 
+            this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.leftToolStripMenuItem.Text = "90° - Left";
+            this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click_1);
+            // 
+            // rightToolStripMenuItem
+            // 
+            this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
+            this.rightToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.rightToolStripMenuItem.Text = "90° - Right";
+            this.rightToolStripMenuItem.Click += new System.EventHandler(this.rightToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -557,41 +633,17 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // label13
+            // tbGreen
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(26, 342);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 13);
-            this.label13.TabIndex = 19;
-            this.label13.Text = "Vertical";
-            // 
-            // vertical_flip_btn
-            // 
-            this.vertical_flip_btn.Location = new System.Drawing.Point(3, 264);
-            this.vertical_flip_btn.Name = "vertical_flip_btn";
-            this.vertical_flip_btn.Size = new System.Drawing.Size(90, 75);
-            this.vertical_flip_btn.TabIndex = 18;
-            this.vertical_flip_btn.UseVisualStyleBackColor = true;
-            this.vertical_flip_btn.Click += new System.EventHandler(this.vertical_flip_btn_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(132, 342);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 13);
-            this.label14.TabIndex = 21;
-            this.label14.Text = "Horizontal";
-            // 
-            // horizontal_flip_btn
-            // 
-            this.horizontal_flip_btn.Location = new System.Drawing.Point(107, 264);
-            this.horizontal_flip_btn.Name = "horizontal_flip_btn";
-            this.horizontal_flip_btn.Size = new System.Drawing.Size(90, 75);
-            this.horizontal_flip_btn.TabIndex = 20;
-            this.horizontal_flip_btn.UseVisualStyleBackColor = true;
-            this.horizontal_flip_btn.Click += new System.EventHandler(this.horizontal_flip_btn_Click);
+            this.tbGreen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbGreen.LargeChange = 10;
+            this.tbGreen.Location = new System.Drawing.Point(0, 120);
+            this.tbGreen.Maximum = 255;
+            this.tbGreen.Minimum = -255;
+            this.tbGreen.Name = "tbGreen";
+            this.tbGreen.Size = new System.Drawing.Size(200, 45);
+            this.tbGreen.TabIndex = 7;
+            this.tbGreen.Scroll += new System.EventHandler(this.tbRGB_Scroll);
             // 
             // Form1
             // 
@@ -613,13 +665,14 @@
             this.panel5.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBrightness)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbBlue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbRed)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGreen)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -646,11 +699,10 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label lbRGBLevel;
-        private System.Windows.Forms.TrackBar trackBar3;
+        private System.Windows.Forms.TrackBar tbBlue;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TrackBar trackBar2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.TrackBar tbRed;
         private System.Windows.Forms.Label lbRed;
         private System.Windows.Forms.Label label3;
         private Emgu.CV.UI.ImageBox ibPicture;
@@ -671,11 +723,16 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button winter_btn;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button horizontal_flip_btn;
+        private System.Windows.Forms.Button btnOriginal;
+        private System.Windows.Forms.ToolStripMenuItem flipToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verticalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem horizontalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rotateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem leftToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rightToolStripMenuItem;
+        private System.Windows.Forms.TrackBar tbBrightness;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button vertical_flip_btn;
+        private System.Windows.Forms.TrackBar tbGreen;
     }
 }
 
