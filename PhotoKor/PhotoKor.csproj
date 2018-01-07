@@ -78,6 +78,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -105,6 +106,10 @@
     <Content Include="opencv_ffmpeg330_64.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\ic_flip_horizontal.png" />
+    <None Include="Resources\ic_rotate_left.png" />
+    <None Include="Resources\ic_rotate_right.png" />
+    <None Include="Resources\ic_flip_vertical.png" />
     <Content Include="vcruntime140.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

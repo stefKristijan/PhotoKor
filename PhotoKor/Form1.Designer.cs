@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pbClose = new System.Windows.Forms.PictureBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.lbAppName = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -56,12 +55,17 @@
             this.histogram_btn = new System.Windows.Forms.Button();
             this.grayscale_btn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.ibRotateR = new System.Windows.Forms.Button();
+            this.ibRotateL = new System.Windows.Forms.Button();
+            this.ibFlipVer = new System.Windows.Forms.Button();
+            this.ibFlipHor = new System.Windows.Forms.Button();
             this.tbBrightness = new System.Windows.Forms.TrackBar();
             this.label13 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.tbBlue = new System.Windows.Forms.TrackBar();
             this.label2 = new System.Windows.Forms.Label();
+            this.tbGreen = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
             this.tbRed = new System.Windows.Forms.TrackBar();
             this.lbRed = new System.Windows.Forms.Label();
@@ -70,11 +74,9 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.resetChangesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.showOriginalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flipToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verticalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.horizontalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -83,9 +85,9 @@
             this.rightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbGreen = new System.Windows.Forms.TrackBar();
+            this.pbTest = new System.Windows.Forms.PictureBox();
+            this.pbClose = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ibPicture)).BeginInit();
             this.panel5.SuspendLayout();
@@ -93,9 +95,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbBrightness)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbBlue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRed)).BeginInit();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGreen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -109,17 +113,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1273, 25);
             this.panel1.TabIndex = 0;
-            // 
-            // pbClose
-            // 
-            this.pbClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pbClose.Image = ((System.Drawing.Image)(resources.GetObject("pbClose.Image")));
-            this.pbClose.Location = new System.Drawing.Point(1238, 0);
-            this.pbClose.Name = "pbClose";
-            this.pbClose.Size = new System.Drawing.Size(25, 25);
-            this.pbClose.TabIndex = 1;
-            this.pbClose.TabStop = false;
-            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
             // 
             // panel3
             // 
@@ -168,6 +161,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.DarkGray;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.panel5.Controls.Add(this.pbTest);
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.btnOriginal);
             this.panel5.Controls.Add(this.label11);
@@ -191,6 +185,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1073, 100);
             this.panel5.TabIndex = 2;
+            this.panel5.Visible = false;
             // 
             // label12
             // 
@@ -357,6 +352,11 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.DarkGray;
+            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel4.Controls.Add(this.ibRotateR);
+            this.panel4.Controls.Add(this.ibRotateL);
+            this.panel4.Controls.Add(this.ibFlipVer);
+            this.panel4.Controls.Add(this.ibFlipHor);
             this.panel4.Controls.Add(this.tbBrightness);
             this.panel4.Controls.Add(this.label13);
             this.panel4.Controls.Add(this.label3);
@@ -366,7 +366,56 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(200, 731);
             this.panel4.TabIndex = 1;
+            this.panel4.Visible = false;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // ibRotateR
+            // 
+            this.ibRotateR.BackColor = System.Drawing.Color.DarkGray;
+            this.ibRotateR.BackgroundImage = global::PhotoKor.Properties.Resources.ic_rotate_right;
+            this.ibRotateR.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibRotateR.Location = new System.Drawing.Point(119, 414);
+            this.ibRotateR.Name = "ibRotateR";
+            this.ibRotateR.Size = new System.Drawing.Size(55, 55);
+            this.ibRotateR.TabIndex = 20;
+            this.ibRotateR.UseVisualStyleBackColor = false;
+            this.ibRotateR.Click += new System.EventHandler(this.ibRotateR_Click);
+            // 
+            // ibRotateL
+            // 
+            this.ibRotateL.BackColor = System.Drawing.Color.DarkGray;
+            this.ibRotateL.BackgroundImage = global::PhotoKor.Properties.Resources.ic_rotate_left;
+            this.ibRotateL.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibRotateL.Location = new System.Drawing.Point(25, 414);
+            this.ibRotateL.Name = "ibRotateL";
+            this.ibRotateL.Size = new System.Drawing.Size(55, 55);
+            this.ibRotateL.TabIndex = 19;
+            this.ibRotateL.UseVisualStyleBackColor = false;
+            this.ibRotateL.Click += new System.EventHandler(this.ibRotateL_Click);
+            // 
+            // ibFlipVer
+            // 
+            this.ibFlipVer.BackColor = System.Drawing.Color.DarkGray;
+            this.ibFlipVer.BackgroundImage = global::PhotoKor.Properties.Resources.ic_flip_vertical;
+            this.ibFlipVer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibFlipVer.Location = new System.Drawing.Point(119, 337);
+            this.ibFlipVer.Name = "ibFlipVer";
+            this.ibFlipVer.Size = new System.Drawing.Size(55, 55);
+            this.ibFlipVer.TabIndex = 18;
+            this.ibFlipVer.UseVisualStyleBackColor = false;
+            this.ibFlipVer.Click += new System.EventHandler(this.ibFlipVer_Click);
+            // 
+            // ibFlipHor
+            // 
+            this.ibFlipHor.BackColor = System.Drawing.Color.DarkGray;
+            this.ibFlipHor.BackgroundImage = global::PhotoKor.Properties.Resources.ic_flip_horizontal;
+            this.ibFlipHor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ibFlipHor.Location = new System.Drawing.Point(25, 337);
+            this.ibFlipHor.Name = "ibFlipHor";
+            this.ibFlipHor.Size = new System.Drawing.Size(55, 55);
+            this.ibFlipHor.TabIndex = 17;
+            this.ibFlipHor.UseVisualStyleBackColor = false;
+            this.ibFlipHor.Click += new System.EventHandler(this.ibFlipHor_Click);
             // 
             // tbBrightness
             // 
@@ -446,6 +495,18 @@
             this.label2.Text = "Blue:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // tbGreen
+            // 
+            this.tbGreen.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tbGreen.LargeChange = 10;
+            this.tbGreen.Location = new System.Drawing.Point(0, 120);
+            this.tbGreen.Maximum = 255;
+            this.tbGreen.Minimum = -255;
+            this.tbGreen.Name = "tbGreen";
+            this.tbGreen.Size = new System.Drawing.Size(200, 45);
+            this.tbGreen.TabIndex = 7;
+            this.tbGreen.Scroll += new System.EventHandler(this.tbRGB_Scroll);
+            // 
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.Transparent;
@@ -515,7 +576,6 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
             this.closeToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
@@ -525,26 +585,22 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
+            this.saveToolStripMenuItem.Enabled = false;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.saveAsToolStripMenuItem.Text = "Save as...";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // closeToolStripMenuItem
             // 
             this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.closeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.closeToolStripMenuItem.Text = "Close";
             this.closeToolStripMenuItem.Click += new System.EventHandler(this.closeToolStripMenuItem_Click);
             // 
@@ -552,25 +608,20 @@
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.resetChangesToolStripMenuItem,
-            this.showOriginalToolStripMenuItem,
             this.flipToolStripMenuItem,
             this.rotateToolStripMenuItem});
             this.editToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Visible = false;
             // 
             // resetChangesToolStripMenuItem
             // 
             this.resetChangesToolStripMenuItem.Name = "resetChangesToolStripMenuItem";
-            this.resetChangesToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.resetChangesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.resetChangesToolStripMenuItem.Text = "Reset changes";
-            // 
-            // showOriginalToolStripMenuItem
-            // 
-            this.showOriginalToolStripMenuItem.Name = "showOriginalToolStripMenuItem";
-            this.showOriginalToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
-            this.showOriginalToolStripMenuItem.Text = "Show original";
+            this.resetChangesToolStripMenuItem.Click += new System.EventHandler(this.resetChangesToolStripMenuItem_Click);
             // 
             // flipToolStripMenuItem
             // 
@@ -578,20 +629,20 @@
             this.verticalToolStripMenuItem,
             this.horizontalToolStripMenuItem});
             this.flipToolStripMenuItem.Name = "flipToolStripMenuItem";
-            this.flipToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.flipToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.flipToolStripMenuItem.Text = "Flip";
             // 
             // verticalToolStripMenuItem
             // 
             this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
-            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.verticalToolStripMenuItem.Text = "Vertical";
             this.verticalToolStripMenuItem.Click += new System.EventHandler(this.verticalToolStripMenuItem_Click);
             // 
             // horizontalToolStripMenuItem
             // 
             this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
-            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.horizontalToolStripMenuItem.Text = "Horizontal";
             this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.horizontalToolStripMenuItem_Click);
             // 
@@ -601,20 +652,20 @@
             this.leftToolStripMenuItem,
             this.rightToolStripMenuItem});
             this.rotateToolStripMenuItem.Name = "rotateToolStripMenuItem";
-            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            this.rotateToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rotateToolStripMenuItem.Text = "Rotate";
             // 
             // leftToolStripMenuItem
             // 
             this.leftToolStripMenuItem.Name = "leftToolStripMenuItem";
-            this.leftToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.leftToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.leftToolStripMenuItem.Text = "90° - Left";
             this.leftToolStripMenuItem.Click += new System.EventHandler(this.leftToolStripMenuItem_Click_1);
             // 
             // rightToolStripMenuItem
             // 
             this.rightToolStripMenuItem.Name = "rightToolStripMenuItem";
-            this.rightToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.rightToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rightToolStripMenuItem.Text = "90° - Right";
             this.rightToolStripMenuItem.Click += new System.EventHandler(this.rightToolStripMenuItem_Click);
             // 
@@ -630,20 +681,27 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
-            // tbGreen
+            // pbTest
             // 
-            this.tbGreen.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tbGreen.LargeChange = 10;
-            this.tbGreen.Location = new System.Drawing.Point(0, 120);
-            this.tbGreen.Maximum = 255;
-            this.tbGreen.Minimum = -255;
-            this.tbGreen.Name = "tbGreen";
-            this.tbGreen.Size = new System.Drawing.Size(200, 45);
-            this.tbGreen.TabIndex = 7;
-            this.tbGreen.Scroll += new System.EventHandler(this.tbRGB_Scroll);
+            this.pbTest.Location = new System.Drawing.Point(888, 6);
+            this.pbTest.Name = "pbTest";
+            this.pbTest.Size = new System.Drawing.Size(77, 75);
+            this.pbTest.TabIndex = 18;
+            this.pbTest.TabStop = false;
+            // 
+            // pbClose
+            // 
+            this.pbClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.pbClose.Image = ((System.Drawing.Image)(resources.GetObject("pbClose.Image")));
+            this.pbClose.Location = new System.Drawing.Point(1238, 0);
+            this.pbClose.Name = "pbClose";
+            this.pbClose.Size = new System.Drawing.Size(25, 25);
+            this.pbClose.TabIndex = 1;
+            this.pbClose.TabStop = false;
+            this.pbClose.Click += new System.EventHandler(this.pbClose_Click);
             // 
             // Form1
             // 
@@ -657,7 +715,6 @@
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ibPicture)).EndInit();
@@ -669,10 +726,12 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbBlue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbRed)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tbGreen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbClose)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -685,14 +744,11 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem resetChangesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem showOriginalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.PictureBox pbClose;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label lbAppName;
         private System.Windows.Forms.Panel panel5;
@@ -733,6 +789,12 @@
         private System.Windows.Forms.TrackBar tbBrightness;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TrackBar tbGreen;
+        private System.Windows.Forms.Button ibFlipHor;
+        private System.Windows.Forms.Button ibRotateR;
+        private System.Windows.Forms.Button ibRotateL;
+        private System.Windows.Forms.Button ibFlipVer;
+        private System.Windows.Forms.PictureBox pbTest;
+        private System.Windows.Forms.PictureBox pbClose;
     }
 }
 
